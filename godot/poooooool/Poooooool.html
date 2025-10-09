@@ -95,9 +95,12 @@ body {
 
 	</head>
 	<body>
-		<canvas id="canvas">
-			Your browser does not support the canvas tag.
-		</canvas>
+	<script src="main.js"></script>
+    <div id="loading-text" style="color: white; font-family: cursive; font-size: 48px; text-align: center; margin-top: 20px;">LOADING...</div>
+	<canvas id='canvas'>
+		HTML5 canvas appears to be unsupported in the current browser.<br />
+		Please try updating or use a different browser.
+	</canvas>
 
 		<noscript>
 			Your browser does not support JavaScript.
@@ -111,17 +114,19 @@ body {
 
 		<script src="Poooooool.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"Poooooool","experimentalVK":false,"fileSizes":{"https://bitbucket.org/thatsalotofgames/.pck-files/downloads/Poooooool.pck":157619472,"Poooooool.wasm":52126319},"focusCanvas":true,"gdextensionLibs":[]};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":true,"executable":"Poooooool","experimentalVK":false,"fileSizes":{"index.pck":157619472,"Poooooool.wasm":52126319},"focusCanvas":true,"gdextensionLibs":[]};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
-(function () {
+window.godotrunfunction = function () {
 	const statusOverlay = document.getElementById('status');
 	const statusProgress = document.getElementById('status-progress');
 	const statusNotice = document.getElementById('status-notice');
 
 	let initializing = true;
 	let statusMode = '';
+	
+	document.getElementById('loading-text').remove();
 
 	function setStatusMode(mode) {
 		if (statusMode === mode || !initializing) {
@@ -213,7 +218,7 @@ const engine = new Engine(GODOT_CONFIG);
 			setStatusMode('hidden');
 		}, displayFailureNotice);
 	}
-}());
+}
 		</script>
 	</body>
 </html>
